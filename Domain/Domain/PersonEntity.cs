@@ -18,5 +18,17 @@
             Email = email;
             PhoneNumber = phoneNumber.Trim();
         }
+
+        private void ValidateCode(string code)
+        {
+            if (string.IsNullOrWhiteSpace(code)){
+                throw new ArgumentException("No puedes proporcionar un codigo nulo o solo de espacios en blanco", nameof(code));
+            }
+
+            if(code.Length<3 || code.Length > 20){
+                throw new ArgumentException("El codigo solo puede tener entre 3 y 20 caracteres", nameof(code));
+            }
+        }
+      
     }
 }
