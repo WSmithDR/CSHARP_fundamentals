@@ -13,10 +13,10 @@
         {
             Id = Guid.NewGuid();
             Code = code.Trim().ToUpper();
-            FirstName = firstName;
-            LastName = lastName;
-            Email = email;
-            PhoneNumber = phoneNumber.Trim();
+            FirstName = firstName.Trim();
+            LastName = lastName.Trim();
+            Email = email.Trim().ToLower();
+            PhoneNumber = phoneNumber.Trim().ToLower();
         }
     }
 }
