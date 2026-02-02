@@ -1,4 +1,6 @@
-﻿namespace Domain
+﻿using System.Text.RegularExpressions;
+
+namespace Domain
 {
     public class PersonEntity
     {
@@ -14,6 +16,8 @@
             ValidateCode(code);
             ValidateFirstName(firstName);
             ValidateLastName(lastName);
+            ValidateEmail(email);
+            ValidatePhoneNumber(phoneNumber);
 
             Id = Guid.NewGuid();
             Code = code.Trim().ToUpper();
@@ -68,7 +72,26 @@
             {
                 throw new ArgumentException("El correo no puede tener mas de 100 caracteres", nameof(email));
             }
+
+            var emailPattern = ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$;
+            if(!Regex.IsMatch(email, emailPattern))
+            {
+                throw new ArgumentException("El formato de correo electronico es inválido.", nameof(email));
+            }
         }
+
+        private void ValidatePhoneNumber(string phoneNumber)
+        {
+            if (string.IsNullOrWhiteSpace(phoneNumber){
+                throw new ArgumentException("El telefono no puede estar vacio", nameof(phoneNumber))
+            }
+
+            if (phoneNumber.Trim().Length < 7 || phoneNumber.Trim().Length>15)
+            {
+                throw new ArgumentException("El numero de telefono no pueder tener menos de 7 digitos ni mas de 15", nameof(phoneNumber));
+            }
+
+        }           
 
     }
 }
