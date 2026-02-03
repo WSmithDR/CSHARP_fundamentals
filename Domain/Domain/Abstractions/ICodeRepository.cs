@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Domain.Abstractions
 {
-    internal interface ICodeRepository<TEntity> where TEntity : class
+    public interface ICodeRepository<TEntity> where TEntity : class
     {
         Task<TEntity> GetByCodeAsync(string code);
 
