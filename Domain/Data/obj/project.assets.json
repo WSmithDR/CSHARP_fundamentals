@@ -1239,6 +1239,16 @@
         "build": {
           "buildTransitive/net8.0/_._": {}
         }
+      },
+      "Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Domain.dll": {}
+        }
       }
     }
   },
@@ -3618,10 +3628,16 @@
         "system.security.cryptography.protecteddata.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "Domain/1.0.0": {
+      "type": "project",
+      "path": "../Domain/Domain.csproj",
+      "msbuildProject": "../Domain/Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net10.0": [
+      "Domain >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 10.0.2",
       "Microsoft.EntityFrameworkCore.Design >= 10.0.2",
       "Microsoft.EntityFrameworkCore.SqlServer >= 10.0.2"
@@ -3658,7 +3674,11 @@
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\WAGNER\\Documents\\Anki\\CSHARP_fundamentals\\Domain\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\WAGNER\\Documents\\Anki\\CSHARP_fundamentals\\Domain\\Domain\\Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
