@@ -42,8 +42,9 @@ namespace Domain
 
         private void ValidateFirstName(string firstName)
         {
-            if (string.IsNullOrWhiteSpace(firstName){
-                throw new ArgumentException("El nombre no puede estar vacio", nameof(firstName))
+            if (string.IsNullOrWhiteSpace(firstName))
+            {
+                throw new ArgumentException("El nombre no puede estar vacio", nameof(firstName));
             }
 
             if(firstName.Length < 2 || firstName.Length > 50)
@@ -54,11 +55,12 @@ namespace Domain
 
         private void ValidateLastName(string lastName)
         {
-            if (string.IsNullOrWhiteSpace(lastName){
-                throw new ArgumentException("El apellido no puede estar vacio", nameof(lastName))
+            if (string.IsNullOrWhiteSpace(lastName))
+            {
+                throw new ArgumentException("El apellido no puede estar vacio", nameof(lastName));
             }
 
-            if (firstName.Length < 2 || firstName.Length > 50)
+            if (lastName.Length < 2 || lastName.Length > 50)
             {
                 throw new ArgumentException("El apellido no puede tener menos de 2 carcteres y mas 50", nameof(lastName));
             }
@@ -66,8 +68,9 @@ namespace Domain
 
         private void ValidateEmail(string email)
         {
-            if (string.IsNullOrWhiteSpace(email){
-                throw new ArgumentException("El correo no puede estar vacio", nameof(email))
+            if (string.IsNullOrWhiteSpace(email))
+            {
+                throw new ArgumentException("El correo no puede estar vacio", nameof(email));
             }
 
             if (email.Length > 100)
@@ -75,7 +78,7 @@ namespace Domain
                 throw new ArgumentException("El correo no puede tener mas de 100 caracteres", nameof(email));
             }
 
-            var emailPattern = ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$;
+            var emailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
             if(!Regex.IsMatch(email, emailPattern))
             {
                 throw new ArgumentException("El formato de correo electronico es inválido.", nameof(email));
@@ -84,8 +87,9 @@ namespace Domain
 
         private void ValidatePhoneNumber(string phoneNumber)
         {
-            if (string.IsNullOrWhiteSpace(phoneNumber){
-                throw new ArgumentException("El telefono no puede estar vacio", nameof(phoneNumber))
+            if (string.IsNullOrWhiteSpace(phoneNumber))
+            {
+                throw new ArgumentException("El telefono no puede estar vacio", nameof(phoneNumber));
             }
 
             if (phoneNumber.Trim().Length < 7 || phoneNumber.Trim().Length>15)
