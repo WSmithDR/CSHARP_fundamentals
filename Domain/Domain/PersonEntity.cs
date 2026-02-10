@@ -11,7 +11,7 @@ namespace Domain
         public string Email { get; private set; } = string.Empty;
         public string PhoneNumber { get; private set; } = string.Empty;
 
-        public string FullName => $"{FirstName} {LastName}";
+       
 
         public PersonEntity(String code, String firstName, String lastName, String email, String phoneNumber)
         {
