@@ -78,11 +78,7 @@ namespace Domain
                 throw new ArgumentException("El correo no puede tener mas de 100 caracteres", nameof(email));
             }
 
-            var emailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
-            if(!Regex.IsMatch(email, emailPattern))
-            {
-                throw new ArgumentException("El formato de correo electronico es inválido.", nameof(email));
-            }
+            
         }
 
         private void ValidatePhoneNumber(string phoneNumber)
